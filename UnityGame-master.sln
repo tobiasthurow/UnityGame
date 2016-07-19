@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{F479B15C-C5A3-7C1F-19B0-9CBBA05D11EC}") = "UnityGame-master", "Assembly-CSharp-firstpass.csproj", "{4C5D2215-556E-6C54-4069-201DC0402641}"
+EndProject
+Project("{F479B15C-C5A3-7C1F-19B0-9CBBA05D11EC}") = "UnityGame-master", "Assembly-CSharp.csproj", "{E7BE911E-E359-878F-DC54-30FBBE32B8A4}"
+EndProject
+Project("{F479B15C-C5A3-7C1F-19B0-9CBBA05D11EC}") = "UnityGame-master", "Assembly-CSharp-Editor.csproj", "{424CFD5C-612E-2E09-666F-C5D85184C6F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C5D2215-556E-6C54-4069-201DC0402641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C5D2215-556E-6C54-4069-201DC0402641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C5D2215-556E-6C54-4069-201DC0402641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C5D2215-556E-6C54-4069-201DC0402641}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7BE911E-E359-878F-DC54-30FBBE32B8A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7BE911E-E359-878F-DC54-30FBBE32B8A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7BE911E-E359-878F-DC54-30FBBE32B8A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7BE911E-E359-878F-DC54-30FBBE32B8A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{424CFD5C-612E-2E09-666F-C5D85184C6F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{424CFD5C-612E-2E09-666F-C5D85184C6F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{424CFD5C-612E-2E09-666F-C5D85184C6F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{424CFD5C-612E-2E09-666F-C5D85184C6F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
