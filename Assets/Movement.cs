@@ -2,12 +2,12 @@
 using System.Collections;
 using UnityEngine.Networking;
 
+[RequireComponent(typeof(Player))]
 public class Movement : NetworkBehaviour {
 
 	private Camera camera;
 
 	private Component weapons;
-
 
 	public float maxJumpHeight = 1.5f;
 
@@ -24,6 +24,8 @@ public class Movement : NetworkBehaviour {
 		} else {
 			GetComponentInChildren (typeof(Camera)).gameObject.SetActive (false);
 		}
+
+        GetComponent<Player>().Setup();
 
 	}
 
@@ -112,4 +114,17 @@ public class Movement : NetworkBehaviour {
 			currentJumpHeight = 0;
 		}
 	}
+
+    public override void OnStartClient() {
+        base.OnStartClient();
+
+        string netId = GetComponent<NetworkIdentity>().netId.ToString();
+        Player player = GetComponent<Player>();
+        GameManager.RegisterPlayer(netId, player);
+    }
+
+    void OnDisable() {
+        GameManager.UnRegisterPlayer(transform.name);
+    }
+
 }
