@@ -102,6 +102,7 @@
     <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_OpenOtherScene.cs" />
     <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo Basic (CSharp)\Scripts\GUIAnimatorFREEDemo.cs" />
     <Compile Include="Assets\GameManager.cs" />
+    <Compile Include="Assets\MouseLock.cs" />
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\Own Scripts\MainMenu.cs" />
     <Compile Include="Assets\Player.cs" />
