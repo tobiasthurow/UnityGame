@@ -61,9 +61,13 @@
      <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_DemoPlaySound.cs" />
      <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_OpenOtherScene.cs" />
      <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo Basic (CSharp)\Scripts\GUIAnimatorFREEDemo.cs" />
+     <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\Movement.cs" />
      <Compile Include="Assets\Own Scripts\MainMenu.cs" />
+     <Compile Include="Assets\Player.cs" />
+     <Compile Include="Assets\Shoot.cs" />
      <Compile Include="Assets\Water Flow FREE\Scripts\WaterFlowFREEDemo.cs" />
+     <Compile Include="Assets\Weapon.cs" />
      <None Include="Assets\Free Guns Pack\READ_ME.txt" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
      <None Include="Assets\Water Flow FREE\Shaders\Water Flow FREE Simple.shader" />

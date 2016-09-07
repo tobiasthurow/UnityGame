@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : NetworkBehaviour {
 
@@ -21,11 +22,10 @@ public class Player : NetworkBehaviour {
     private Behaviour[] disableOnDeath;
     private bool[] wasEnabled;
 
-    [SerializeField]
-    GameObject healthBarFiller;
+    private Image healthBarFiller;
 
     public void Setup() {
-
+		healthBarFiller = transform.FindChild ("GameUI").FindChild ("Healthbar").FindChild("Mask").FindChild("Filler").gameObject.GetComponentInChildren<Image>();
         wasEnabled = new bool[disableOnDeath.Length];
         for(int i = 0; i < wasEnabled.Length; i++) {
             wasEnabled[i] = disableOnDeath[i].enabled;
@@ -36,10 +36,10 @@ public class Player : NetworkBehaviour {
     void SetDefaults() {
         isDead = false;
         currentHealth = maxHealth;
+		healthBarFiller.fillAmount = 1f;
         for(int i = 0; i < disableOnDeath.Length; i++) {
             disableOnDeath[i].enabled = wasEnabled[i];
         }
-
     }
 
     [ClientRpc]
@@ -49,6 +49,7 @@ public class Player : NetworkBehaviour {
 
         currentHealth -= amount;
         Debug.Log(transform.name + " now has " + currentHealth + " health");
+		healthBarFiller.fillAmount = currentHealth * 1.0f / maxHealth;
         if(currentHealth <= 0) {
             Die();
         }

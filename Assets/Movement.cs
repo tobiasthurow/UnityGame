@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Player))]
 public class Movement : NetworkBehaviour {
@@ -23,13 +24,19 @@ public class Movement : NetworkBehaviour {
 			weapons = transform.Find ("weapons");
 		} else {
 			GetComponentInChildren (typeof(Camera)).gameObject.SetActive (false);
+			GetComponentInChildren<Canvas> ().gameObject.SetActive (false);
 		}
-
+		staminaBarFiller = transform.FindChild ("GameUI").FindChild ("Staminabar").FindChild("Mask").FindChild("Filler").gameObject.GetComponentInChildren<Image>();
         GetComponent<Player>().Setup();
-
 	}
 
-	private float speed = 10;
+	private Image staminaBarFiller;
+
+	private float maxStamina = 100;
+
+	private float currentStamina = 100;
+
+	private float speed = 7;
 
 	private bool jumping = false;
 
@@ -67,15 +74,32 @@ public class Movement : NetworkBehaviour {
 
 			//sprint
 			if (Input.GetKeyDown (KeyCode.LeftShift)) {
-				speed = 15;
-			} 
-			if (Input.GetKeyUp (KeyCode.LeftShift)) {
 				speed = 10;
 			} 
+			if (Input.GetKeyUp (KeyCode.LeftShift)) {
+				speed = 7;
+			} 
 
+			if ((Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") != 0 ) && (speed == 10)) {
+				currentStamina -= 25 * Time.deltaTime;
+				if (currentStamina < 0) {
+					currentStamina = 0;
+					speed = 7;
+
+				}
+			} else {
+				currentStamina += 5 * Time.deltaTime;
+				if (currentStamina > maxStamina) {
+					currentStamina = maxStamina;
+				}
+			}
+
+			staminaBarFiller.fillAmount = currentStamina / maxStamina;
 			//movement
 			horizontal = Input.GetAxis ("Horizontal") * Time.deltaTime * speed;
 			vertical = Input.GetAxis ("Vertical") * Time.deltaTime * speed;
+
+
 
 			transform.Translate (horizontal, 0, vertical);
 		}
