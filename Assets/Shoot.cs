@@ -8,6 +8,12 @@ public class Shoot : NetworkBehaviour {
     public Weapon weapon;
 
     [SerializeField]
+    private Rigidbody projectile;
+
+    [SerializeField]
+    private int bulletSpeed = 100;
+
+    [SerializeField]
     private Camera cam;
 
     [SerializeField]
@@ -36,6 +42,8 @@ public class Shoot : NetworkBehaviour {
                 CmdPlayerShot(hit.collider.transform.name, hit.collider.transform.parent.transform.name, weapon.damage);
             }
         }
+        Rigidbody instanciatedObject = (Rigidbody) Instantiate(projectile, (cam.transform.position + Vector3.forward), cam.transform.rotation);
+        instanciatedObject.velocity = cam.transform.TransformDirection(Vector3.forward * bulletSpeed);
     }
 
     [Command]

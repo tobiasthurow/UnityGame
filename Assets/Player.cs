@@ -81,6 +81,8 @@ public class Player : NetworkBehaviour {
         Transform spawnPoint = NetworkManager.singleton.GetStartPosition();
         transform.position = spawnPoint.position;
         transform.rotation = spawnPoint.rotation;
+
+        GameManager.RegisterPlayer(transform.name, this);
     }
 
 }
